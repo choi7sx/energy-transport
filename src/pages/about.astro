@@ -1,5 +1,10 @@
 ---
-import AboutPage from "../content/pages/about.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<AboutPage />
+<Layout title="About us">
+  <section class="page-hero"><div class="shell"><p class="eyebrow">Who we are</p><h1>A family legacy built to keep the region moving.</h1><p>For more than three decades, Energy Transport has paired the capabilities of a dependable carrier with the care of a family-owned business.</p></div></section>
+  <section class="section"><div class="shell split-story"><div class="story-art" role="img" aria-label="Placeholder for Energy Transport history photo"><span class="story-mark">Our history<br />runs deep.</span></div><div class="story-copy"><p class="eyebrow">Our history</p><h2 class="content-title">From private fleet to trusted carrier.</h2><p>Energy Transport began as the private fleet of Willoughby Oil Co., founded in 1989 by Edwin, Lee, and David Willoughby. When Willoughby Oil Co. sold its branded operations in 2018, the family formed Energy Transport as a for-hire carrier.</p><p>Today, our offices in Somerville, Savannah, and Hendersonville support customers across Tennessee, Arkansas, Mississippi, and Kentucky. The work has evolved, but our standard has not: do it safely, do it well, and take care of the people who count on you.</p></div></div></section>
+  <section class="section section-tint"><div class="shell"><div class="section-heading"><div><p class="eyebrow">The people behind the promise</p><h2>Led by people who know the work.</h2></div><p>Our team keeps drivers supported and customers informed—because reliable service starts with accountable people.</p></div><div class="content-grid"><article class="detail-card"><p class="eyebrow">Ownership</p><h2>David & Lee Willoughby</h2><p>Owners carrying forward the standards that have guided the business from the beginning.</p></article><article class="detail-card"><p class="eyebrow">Operations & safety</p><h2>Built around good people</h2><p>From dispatch to fleet safety, our team values clear communication, professionalism, and respect for every driver.</p></article></div></div></section>
+  <section class="cta-band"><div class="shell cta-inner"><div><p class="eyebrow">Work with people who care</p><h2>Let’s make your next delivery the easy part.</h2></div><a class="button" href="/contact/">Request a quote <span aria-hidden="true">→</span></a></div></section>
+</Layout>
