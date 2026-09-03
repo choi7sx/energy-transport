@@ -5,22 +5,44 @@
     "logo_url": "/",
     "links": [
       {
+        "link": "/products/",
+        "text": "Products",
+        "sublinks": [
+          {
+            "link": "/products/gasoline/",
+            "text": "Gasoline"
+          },
+          {
+            "link": "/products/ethanol/",
+            "text": "Ethanol"
+          },
+          {
+            "link": "/products/diesel/",
+            "text": "Diesel"
+          }
+        ]
+      },
+      {
+        "link": "/services/",
+        "text": "Services"
+      },
+      {
         "link": "/about/",
         "text": "About"
       },
       {
-        "link": "/blog/",
-        "text": "Blog"
+        "link": "/career/",
+        "text": "Career"
       },
       {
-        "link": "https://github.com/CloudCannon/astro-starter/",
-        "text": "GitHub"
-      },
-      {
-        "link": "https://cloudcannon.com/",
-        "text": "CloudCannon"
+        "link": "/contact/",
+        "text": "Contact"
       }
-    ]
+    ],
+    "cta": {
+      "link": "/contact/",
+      "text": "New Customer"
+    }
   },
   "footer": {
     "logo": "/images/logos/logo-wordmark-white.png",

@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary-50: #fce8e8;
+  --color-primary-100: #f9d2d1;
+  --color-primary-200: #f2a5a3;
+  --color-primary-300: #ec7875;
+  --color-primary-400: #e54b47;
+  --color-primary-500: #de1e19;
+  --color-primary-600: #d60201;
+  --color-primary-700: #b00101;
+  --color-primary-800: #8a0101;
+  --color-primary-900: #640101;
+}
+
 @layer base {
   * {
     margin: 0;
@@ -74,7 +87,7 @@
     margin-inline: 1rem;
   }
   .prose a {
-    color: #034ad8;
+    color: var(--color-primary-700);
     text-decoration: underline;
     text-underline-offset: 0.1rem;
     cursor: pointer;

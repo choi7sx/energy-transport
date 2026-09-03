@@ -11,12 +11,36 @@ import { header } from "../../../data/navigation.json";
 
       <ul class="hidden sm:flex items-center gap-6">
         {header.links.map((link) => (
-          <li>
+          <li class:list={["relative", { group: link.sublinks }]}>
             <a class="text-gray-700 hover:text-gray-500 transition-colors" href={link.link}>
               {link.text}
             </a>
+            {link.sublinks && (
+              <ul class="absolute left-0 top-full z-10 hidden min-w-40 flex-col rounded-md border border-gray-100 bg-white py-2 shadow-lg group-hover:flex group-focus-within:flex">
+                {link.sublinks.map((sublink) => (
+                  <li>
+                    <a
+                      class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-gray-500 transition-colors"
+                      href={sublink.link}
+                    >
+                      {sublink.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
+        {header.cta && (
+          <li>
+            <a
+              class="rounded-md bg-primary-600 px-4 py-2 text-white hover:bg-primary-700 transition-colors"
+              href={header.cta.link}
+            >
+              {header.cta.text}
+            </a>
+          </li>
+        )}
       </ul>
 
       <button
@@ -47,14 +71,38 @@ import { header } from "../../../data/navigation.json";
             </svg>
           </button>
         </div>
-        <ul class="flex flex-1 flex-col items-center justify-center gap-0 divide-y divide-gray-200">
+        <ul class="flex flex-1 flex-col items-center justify-center gap-0 divide-y divide-gray-200 overflow-y-auto">
           {header.links.map((link) => (
             <li class="w-full max-w-xs text-center">
-              <a class="block py-5 text-2xl font-medium text-gray-800 hover:text-blue-600 transition-colors" href={link.link}>
-                {link.text}
-              </a>
+              {link.sublinks ? (
+                <details class="group/details">
+                  <summary class="cursor-pointer list-none py-5 text-2xl font-medium text-gray-800 hover:text-gray-900 transition-colors">
+                    {link.text}
+                  </summary>
+                  <ul class="flex flex-col gap-0 pb-4">
+                    {link.sublinks.map((sublink) => (
+                      <li>
+                        <a class="block py-3 text-lg text-gray-600 hover:text-gray-900 transition-colors" href={sublink.link}>
+                          {sublink.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ) : (
+                <a class="block py-5 text-2xl font-medium text-gray-800 hover:text-gray-900 transition-colors" href={link.link}>
+                  {link.text}
+                </a>
+              )}
             </li>
           ))}
+          {header.cta && (
+            <li class="w-full max-w-xs text-center">
+              <a class="block py-5 text-2xl font-medium text-primary-600 hover:text-primary-700 transition-colors" href={header.cta.link}>
+                {header.cta.text}
+              </a>
+            </li>
+          )}
         </ul>
         </div>
       </div>
