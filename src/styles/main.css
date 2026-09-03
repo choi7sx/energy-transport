@@ -106,10 +106,10 @@ button, input, select, textarea { font: inherit; }
 .cta-band .button { background: #fff; color: var(--ink); border-color: #fff; white-space: nowrap; }
 .cta-band .button:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
 
-.page-hero { padding: clamp(4.6rem, 8vw, 8rem) 0 clamp(3.8rem, 6vw, 6rem); background: var(--cream); }
-.page-hero h1 { max-width: 12ch; }
-.page-hero p { max-width: 57ch; color: var(--muted); font-size: 1.1rem; line-height: 1.7; }
-.page-hero .eyebrow { margin-bottom: .7rem; }
+.page-hero { padding: clamp(3.25rem, 5vw, 5.5rem) 0 clamp(2.75rem, 4vw, 4.5rem); background: var(--cream); text-align: center; }
+.page-hero h1 { max-width: 24ch; margin-inline: auto; font-size: clamp(2.8rem, 3.6vw, 4rem); }
+.page-hero p { max-width: 57ch; margin-inline: auto; color: var(--muted); font-size: 1.1rem; line-height: 1.7; }
+.page-hero .eyebrow { margin-bottom: .6rem; font-size: .66rem; }
 .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .detail-card { padding: 2rem; border: 1px solid var(--line); background: #fff; }
 .detail-card h2 { margin: .6rem 0 .7rem; font-family: var(--display); font-size: 2rem; font-weight: 600; letter-spacing: -.012em; }
