@@ -1,0 +1,11 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const { page } = Astro.props;
+---
+
+<Layout title={page.title} seo={page.seo}>
+  <section class="page-hero"><div class="shell"><p class="eyebrow">{page.hero.eyebrow}</p><h1>{page.hero.heading}</h1><p>{page.hero.lead}</p></div></section>
+  <section class="section"><div class="shell split-story"><div class="story-art"><img src={page.history.image} alt={page.history.image_alt} /></div><div class="story-copy"><p class="eyebrow">{page.history.eyebrow}</p><h2 class="content-title">{page.history.heading}</h2>{page.history.paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}</div></div></section>
+  <section class="section section-tint"><div class="shell"><div class="section-heading section-heading--centered"><p class="eyebrow">{page.people.eyebrow}</p><h2>{page.people.heading}</h2><p>{page.people.lead}</p></div><div class="content-grid">{page.people.cards.map((card: { eyebrow: string; heading: string; text: string }) => <article class="detail-card"><p class="eyebrow">{card.eyebrow}</p><h2>{card.heading}</h2><p>{card.text}</p></article>)}</div></div></section>
+</Layout>
