@@ -82,15 +82,12 @@ button, input, select, textarea { font: inherit; }
 .section-heading h2, .content-title { max-width: 13ch; margin: .65rem 0 0; font-family: var(--display); font-size: clamp(2.45rem, 4vw, 4rem); font-weight: 600; letter-spacing: -.015em; line-height: 1.1; }
 .section-heading p { align-self: end; max-width: 45ch; color: var(--muted); font-size: 1.05rem; line-height: 1.7; }
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.service-card { min-height: 285px; padding: 1.6rem; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--line); background: var(--paper); }
-.service-card:nth-child(2) { background: var(--forest); color: #fff; border-color: var(--forest); }
+.service-card { min-height: 285px; padding: 1.6rem; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--line); background: var(--paper); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.service-card:hover, .service-card:focus-visible { transform: translateY(-4px); border-color: #b9c2b8; box-shadow: 0 12px 24px rgba(29, 54, 43, .1); }
 .service-number { color: var(--signal); font-size: .78rem; font-weight: 800; letter-spacing: .1em; }
-.service-card:nth-child(2) .service-number { color: var(--sun); }
 .service-card h3 { margin: 1rem 0 .8rem; font-family: var(--display); font-size: 2rem; font-weight: 600; letter-spacing: -.012em; }
 .service-card p { margin: 0; color: var(--muted); line-height: 1.6; }
-.service-card:nth-child(2) p { color: #d7e0d7; }
-.service-card a { margin-top: 1.6rem; color: var(--signal); font-size: .9rem; font-weight: 800; }
-.service-card:nth-child(2) a { color: #fff; }
+.service-link { margin-top: 1.6rem; color: var(--signal); font-size: .9rem; font-weight: 800; }
 
 .split-story { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(2.5rem, 6vw, 7rem); align-items: center; }
 .story-art { min-height: 450px; position: relative; overflow: hidden; background: #cabd9e; }
