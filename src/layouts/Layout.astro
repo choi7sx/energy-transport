@@ -4,6 +4,7 @@ import "../styles/main.css";
 import site from "../../data/site.json";
 import Header from "../components/navigation/header.astro";
 import Footer from "../components/navigation/footer.astro";
+import ContactCta from "../components/cta/contact-cta.astro";
 import { SEO } from "astro-seo";
 
 export interface SEOProps {
@@ -78,6 +79,7 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
     <main class="flex-1">
       <slot />
     </main>
+    <ContactCta />
     <Footer />
     <script>
       if (window.inEditorMode) {
