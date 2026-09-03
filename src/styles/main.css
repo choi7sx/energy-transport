@@ -115,6 +115,7 @@ main { min-height: 60vh; }
 .job-card { max-width: 800px; padding: clamp(1.7rem, 4vw, 3.2rem); border-top: 4px solid var(--signal); background: #fff; box-shadow: 0 16px 45px rgba(29,54,43,.08); }
 .job-card h2 { margin: .4rem 0 1rem; font-family: var(--display); font-size: 2.5rem; font-weight: 600; letter-spacing: -.015em; }
 .job-card p { color: var(--muted); line-height: 1.7; }
+.job-card .button { margin-top: 1.5rem; }
 .contact-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(2rem, 7vw, 7rem); }
 .contact-detail { margin: 1.5rem 0; }
 .contact-detail span { display: block; margin-bottom: .25rem; color: var(--signal); font-size: .75rem; letter-spacing: .1em; font-weight: 800; text-transform: uppercase; }
