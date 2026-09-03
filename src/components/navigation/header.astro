@@ -16,11 +16,41 @@ import { header } from "../../../data/navigation.json";
     <a class="button button-small header-cta" href={header.cta.link}>{header.cta.text} <span aria-hidden="true">↗</span></a>
 
     <details class="mobile-nav">
-      <summary aria-label="Open navigation menu"><span></span><span></span><span></span></summary>
-      <nav aria-label="Mobile navigation">
+      <summary aria-label="Open navigation menu" aria-controls="mobile-menu"><span></span><span></span><span></span></summary>
+      <nav id="mobile-menu" aria-label="Mobile navigation">
         {header.links.map((link) => <a href={link.link}>{link.text}</a>)}
         <a class="button" href={header.cta.link}>{header.cta.text}</a>
       </nav>
     </details>
   </div>
 </header>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>(".mobile-nav");
+
+  if (menu) {
+    const summary = menu.querySelector("summary");
+    const closeMenu = () => menu.removeAttribute("open");
+
+    menu.addEventListener("toggle", () => {
+      summary?.setAttribute("aria-label", menu.open ? "Close navigation menu" : "Open navigation menu");
+    });
+
+    menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+
+    document.addEventListener("click", (event) => {
+      if (menu.open && !menu.contains(event.target as Node)) closeMenu();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.open) {
+        closeMenu();
+        summary?.focus();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.matchMedia("(min-width: 901px)").matches) closeMenu();
+    });
+  }
+</script>
