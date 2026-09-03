@@ -45,7 +45,7 @@
     }
   },
   "footer": {
-    "logo": "/images/logos/energy-transport-company-logo-reversed.png",
+    "logo": "/images/logos/energy-transport-company-logo.png",
     "logo_alt_text": "Energy Transport Company, LLC logo",
     "logo_url": "/",
     "copyright": "Energy Transport Company, LLC. All rights reserved.",
@@ -70,6 +70,11 @@
         "link": "/contact/",
         "text": "Contact"
       }
-    ]
+    ],
+    "contact": {
+      "email": "info@energytransport.com",
+      "phone": "(555) 123-4567",
+      "inquiry_link": "/contact/"
+    }
   }
 }

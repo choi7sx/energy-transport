@@ -2,18 +2,23 @@
 import { footer } from "../../../data/navigation.json";
 ---
 
-<footer class="bg-gray-800 text-white">
+<footer class="bg-gray-100 text-gray-700">
   <div class="mx-auto max-w-6xl px-8 py-12">
-    <div class="flex flex-col gap-8">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-8">
-        <a class="flex justify-center" href={footer.logo_url}>
+    <div class="grid grid-cols-1 gap-12 sm:grid-cols-3">
+      <div>
+        <a class="inline-block" href={footer.logo_url}>
           <img class="w-48" src={footer.logo} alt={footer.logo_alt_text} />
         </a>
+      </div>
 
-        <ul class="flex flex-wrap items-center justify-center gap-6">
+      <div>
+        <h2 class="text-xl font-bold text-primary-700">Quick Links</h2>
+        <div class="mt-2 mb-6 h-0.5 w-10 bg-primary-700"></div>
+
+        <ul class="flex flex-col gap-3">
           {footer.links.map((link) => (
             <li>
-              <a class="hover:text-gray-300 transition-colors" href={link.link}>
+              <a class="hover:text-primary-700 transition-colors" href={link.link}>
                 {link.text}
               </a>
             </li>
@@ -21,9 +26,41 @@ import { footer } from "../../../data/navigation.json";
         </ul>
       </div>
 
-      <div class="text-center text-sm text-gray-400">
-        &copy; {new Date().getFullYear()} {footer.copyright}
+      <div>
+        <h2 class="text-xl font-bold text-primary-700">Get in Touch</h2>
+        <div class="mt-2 mb-6 h-0.5 w-10 bg-primary-700"></div>
+
+        <ul class="flex flex-col gap-3">
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <a class="hover:text-primary-700 transition-colors" href={`mailto:${footer.contact.email}`}>
+              {footer.contact.email}
+            </a>
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.97.76l1.1 4.4a1 1 0 01-.5 1.11L7.1 10.3a11 11 0 006.6 6.6l1.03-1.75a1 1 0 011.11-.5l4.4 1.1a1 1 0 01.76.97V19a2 2 0 01-2 2h-1C10.4 21 3 13.6 3 4V5z" />
+            </svg>
+            <a class="hover:text-primary-700 transition-colors" href={`tel:${footer.contact.phone}`}>
+              {footer.contact.phone}
+            </a>
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M9 8h1M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+            <a class="hover:text-primary-700 transition-colors" href={footer.contact.inquiry_link}>
+              Complete an Online Inquiry
+            </a>
+          </li>
+        </ul>
       </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-300 pt-6 text-center text-sm text-gray-500">
+      &copy; {new Date().getFullYear()} {footer.copyright}
     </div>
   </div>
 </footer>
