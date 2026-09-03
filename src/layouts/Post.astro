@@ -1,5 +1,5 @@
 ---
-import Layout from "./Layout.astro";
+import Layout, { type SEOProps } from "./Layout.astro";
 import PostSummary from "../components/blog/summary.astro";
 import PostHero from "../components/blog/post-hero/post-hero.astro";
 import { getCollection } from "astro:content";
@@ -7,6 +7,7 @@ import { getCollection } from "astro:content";
 type Props = {
   frontmatter: {
     title: string;
+    seo?: SEOProps;
     post_hero: {
       heading: string;
       date: string | Date;
@@ -33,7 +34,7 @@ const filteredPosts = posts.filter(
       <editable-component data-prop="post_hero" data-component="PostHero">
         <PostHero {...frontmatter.post_hero} bodyContent={body} />
       </editable-component>
-      <div class="prose" data-pagefind-body>
+      <div class="prose">
         <editable-text data-prop="@content" data-type="block">
           <slot />
         </editable-text>

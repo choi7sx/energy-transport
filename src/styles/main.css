@@ -183,6 +183,12 @@ p.eyebrow, .page-hero p.eyebrow, .section-heading p.eyebrow, .story-copy p.eyebr
 .field select { color: var(--ink); background: #fff; }
 .inquiry-form .button { margin-top: 1.4rem; background: var(--sun); border-color: var(--sun); color: var(--ink); }
 .form-status { min-height: 1.3em; margin: 1rem 0 -0.4rem; color: #dbe5db; font-size: var(--text-navigation); line-height: 1.5; }
+.faq-list { max-width: 860px; }
+.faq-list .content-title { margin-top: 0; }
+.faq-item { border-top: 1px solid var(--line); }
+.faq-item:last-child { border-bottom: 1px solid var(--line); }
+.faq-item summary { padding: 1.2rem 2rem 1.2rem 0; color: var(--ink); cursor: pointer; font-family: var(--font-display); font-size: 1.25rem; font-weight: var(--font-weight-semibold); }
+.faq-item p { max-width: 68ch; margin: 0 0 1.25rem; color: var(--muted); line-height: 1.7; }
 
 .site-footer { padding-top: 4.5rem; background: var(--ink); color: #edf0eb; }
 .footer-grid { display: grid; grid-template-columns: 1.35fr .65fr 1fr; gap: 3rem; padding-bottom: 3.5rem; }

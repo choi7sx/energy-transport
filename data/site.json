@@ -2,7 +2,8 @@
   "site_title": "Energy Transport Company",
   "description": "Family-owned fuel transportation across Tennessee and the Mid-South since 1989.",
   "twitter_site": "",
-  "image": "/images/logos/logo-wordmark-blue.png",
-  "image_alt": "Energy Transport Company logo",
+  "image": "/images/energy-transport/fuel-tanker-road.jpg",
+  "image_alt": "An Energy Transport fuel tanker on the road",
+  "logo": "/images/logos/energy-transport-company-logo.png",
   "default_author": "Energy Transport Company"
 }

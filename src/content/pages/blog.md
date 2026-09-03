@@ -1,13 +1,13 @@
 ---
 _schema: paginated
-title: Blog
+title: Energy Transport Updates
 seo:
-  page_description: A blog template with tags.
+  page_description: Energy Transport Company updates and resources.
   canonical_url:
   featured_image:
   featured_image_alt:
   author_twitter_handle:
   open_graph_type: website
-  no_index: false
+  no_index: true
 page_size: 6
 ---

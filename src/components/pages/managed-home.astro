@@ -1,0 +1,59 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const { page } = Astro.props;
+---
+
+<Layout title={page.title} seo={page.seo}>
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">{page.hero.eyebrow}</p>
+        <h1>{page.hero.heading}</h1>
+        <p class="hero-lead">{page.hero.lead}</p>
+        <div class="hero-actions">
+          <a class="button" href={page.hero.primary_cta.link}>{page.hero.primary_cta.text} <span aria-hidden="true">→</span></a>
+          <a class="button button-ghost" href={page.hero.secondary_cta.link}>{page.hero.secondary_cta.text}</a>
+        </div>
+        <p class="hero-note">{page.hero.note}</p>
+      </div>
+      <div class="hero-art hero-photo">
+        <img src={page.hero.image} alt={page.hero.image_alt} />
+        <div class="art-badge">Safe<br />on time<br />every time</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-bar" aria-label="Energy Transport highlights">
+    <div class="shell trust-list">
+      {page.trust_items.map((item: { value: string; text: string }) => <div><strong>{item.value}</strong><span>{item.text}</span></div>)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-heading section-heading--centered">
+        <p class="eyebrow">{page.products.eyebrow}</p>
+        <h2>{page.products.heading}</h2>
+        <p>{page.products.lead}</p>
+      </div>
+      <div class="services-grid">
+        {page.products.items.map((item: { number: string; title: string; text: string; link: string; link_text: string }) => (
+          <article><a class="service-card" href={item.link}><div><span class="service-number">{item.number}</span><h3>{item.title}</h3><p>{item.text}</p></div><span class="service-link">{item.link_text} →</span></a></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="shell split-story">
+      <div class="story-art"><img src={page.story.image} alt={page.story.image_alt} /></div>
+      <div class="story-copy">
+        <p class="eyebrow">{page.story.eyebrow}</p>
+        <h2 class="content-title">{page.story.heading}</h2>
+        <p>{page.story.text}</p>
+        <a class="text-link" href={page.story.link}>{page.story.link_text} <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</Layout>

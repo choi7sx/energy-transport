@@ -1,20 +1,20 @@
 ---
-import path from "node:path";
 import "../styles/main.css";
 import site from "../../data/site.json";
+import { footer } from "../../data/navigation.json";
 import Header from "../components/navigation/header.astro";
 import Footer from "../components/navigation/footer.astro";
 import ContactCta from "../components/cta/contact-cta.astro";
 import { SEO } from "astro-seo";
 
 export interface SEOProps {
-  page_description: string | null;
-  featured_image: string | null;
-  featured_image_alt: string | null;
-  canonical_url: string | null;
-  no_index: boolean | null;
-  open_graph_type: string | null;
-  author_twitter_handle: string | null;
+  page_description?: string | null;
+  featured_image?: string | null;
+  featured_image_alt?: string | null;
+  canonical_url?: string | null;
+  no_index?: boolean | null;
+  open_graph_type?: string | null;
+  author_twitter_handle?: string | null;
 }
 
 export interface Props {
@@ -23,7 +23,7 @@ export interface Props {
 }
 
 const { seo, title } = Astro.props;
-const baseUrl = Astro.site?.toString() ?? "";
+const baseUrl = Astro.site ?? new URL("https://example.invalid/");
 
 let pageTitle = "";
 if (!title) {
@@ -36,9 +36,60 @@ if (!title) {
 
 const description = seo?.page_description ?? site.description;
 const image = seo?.featured_image ?? site.image;
-const imagePath = path.join(baseUrl, image);
 const imageAlt = seo?.featured_image_alt ?? site.image_alt;
 const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
+const imageURL = new URL(image, canonicalURL);
+const siteURL = new URL("/", baseUrl);
+const organizationId = `${siteURL.toString()}#organization`;
+const pageType = seo?.open_graph_type === "article" ? "Article" : "WebPage";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": organizationId,
+      name: site.site_title,
+      legalName: "Energy Transport Company LLC",
+      url: siteURL.toString(),
+      logo: new URL(site.logo, siteURL).toString(),
+      description: site.description,
+      email: footer.contact.email,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "600 Pickwick St",
+        addressLocality: "Savannah",
+        addressRegion: "TN",
+        postalCode: "38372",
+        addressCountry: "US",
+      },
+      areaServed: ["Tennessee", "Arkansas", "Mississippi", "Kentucky"].map((name) => ({
+        "@type": "State",
+        name,
+      })),
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteURL.toString()}#website`,
+      url: siteURL.toString(),
+      name: site.site_title,
+      description: site.description,
+      publisher: { "@id": organizationId },
+      inLanguage: "en-US",
+    },
+    {
+      "@type": pageType,
+      "@id": `${canonicalURL.toString()}#webpage`,
+      url: canonicalURL.toString(),
+      name: pageTitle,
+      description,
+      image: imageURL.toString(),
+      isPartOf: { "@id": `${siteURL.toString()}#website` },
+      about: { "@id": organizationId },
+      inLanguage: "en-US",
+    },
+  ],
+};
+const structuredDataJson = JSON.stringify(structuredData).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
@@ -53,19 +104,19 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
     <meta name="generator" content={Astro.generator} />
 
     <SEO
-      noindex={seo?.no_index || false}
+      noindex={Boolean(seo?.no_index)}
       title={pageTitle}
       description={description}
       canonical={canonicalURL.toString()}
       openGraph={{
         basic: {
           title: pageTitle,
-          url: baseUrl?.toString(),
+          url: canonicalURL.toString(),
           type: seo?.open_graph_type || "website",
-          image: imagePath,
+          image: imageURL.toString(),
         },
         optional: { description },
-        image: { url: imagePath, alt: imageAlt },
+        image: { url: imageURL.toString(), alt: imageAlt },
       }}
       twitter={{
         creator: `${seo?.author_twitter_handle || site.twitter_site}`,
@@ -73,6 +124,7 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
         card: "summary_large_image",
       }}
     />
+    <script type="application/ld+json" set:html={structuredDataJson} />
   </head>
   <body class="flex flex-col min-h-screen">
     <Header />

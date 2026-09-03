@@ -1,4 +1,4 @@
-timezone: Pacific/Auckland
+timezone: America/Chicago
 
 paths:
   static: public
@@ -32,6 +32,22 @@ collections_config:
       paginated:
         name: Paginated collection
         path: '.cloudcannon/schemas/paginated.md'
+        remove_extra_inputs: false
+      home:
+        name: Home Page
+        path: '.cloudcannon/schemas/home.md'
+        remove_extra_inputs: false
+      detail:
+        name: Service Page
+        path: '.cloudcannon/schemas/detail.md'
+        remove_extra_inputs: false
+      career:
+        name: Career Page
+        path: '.cloudcannon/schemas/career.md'
+        remove_extra_inputs: false
+      contact:
+        name: Contact Page
+        path: '.cloudcannon/schemas/contact.md'
         remove_extra_inputs: false
       source_page:
         name: Source Editable Page

@@ -41,7 +41,7 @@ const pagination = Astro.props.page;
 const filteredPosts = pagination.data;
 ---
 
-<Layout title={page.title} seo={page.seo}>
+<Layout title={page.title} seo={{ ...page.seo, no_index: true }}>
   <div class="mx-auto max-w-6xl px-8 py-16">
     <h1 class="type-title-page text-center mb-8">
       {page.title}
