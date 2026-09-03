@@ -10,9 +10,9 @@ import { header } from "../../../data/navigation.json";
       </a>
 
       <div class="hidden sm:flex items-center">
-        <ul id="nav-links" class="flex items-center gap-6 transition-all duration-300 ease-in-out">
+        <ul id="nav-links" class="flex items-center gap-6">
           {header.links.map((link) => (
-            <li class:list={["relative", { group: link.sublinks }]}>
+            <li class:list={["relative shrink-0 whitespace-nowrap", { group: link.sublinks }]}>
               <a class="text-gray-700 hover:text-gray-500 transition-colors" href={link.link}>
                 {link.text}
               </a>
@@ -126,8 +126,8 @@ import { header } from "../../../data/navigation.json";
   }
 
   #nav-links {
-    max-width: 40rem;
     opacity: 1;
+    transition: opacity 200ms ease;
   }
 
   #site-header.is-minimized {
@@ -149,10 +149,7 @@ import { header } from "../../../data/navigation.json";
   }
 
   #site-header.is-minimized #nav-links {
-    max-width: 0;
     opacity: 0;
-    gap: 0;
-    overflow: hidden;
     pointer-events: none;
   }
 </style>
