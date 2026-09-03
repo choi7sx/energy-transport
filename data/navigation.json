@@ -45,18 +45,30 @@
     }
   },
   "footer": {
-    "logo": "/images/logos/logo-wordmark-white.png",
-    "logo_alt_text": "CloudCannon logo",
+    "logo": "/images/logos/energy-transport-company-logo-reversed.png",
+    "logo_alt_text": "Energy Transport Company, LLC logo",
     "logo_url": "/",
-    "copyright": "MyCompany. All rights reserved.",
+    "copyright": "Energy Transport Company, LLC. All rights reserved.",
     "links": [
       {
-        "link": "/blog/",
-        "text": "Blog"
+        "link": "/products/",
+        "text": "Products"
       },
       {
-        "link": "/feed.xml",
-        "text": "RSS Feed"
+        "link": "/services/",
+        "text": "Services"
+      },
+      {
+        "link": "/about/",
+        "text": "About"
+      },
+      {
+        "link": "/career/",
+        "text": "Career"
+      },
+      {
+        "link": "/contact/",
+        "text": "Contact"
       }
     ]
   }
