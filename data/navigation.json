@@ -6,21 +6,7 @@
     "links": [
       {
         "link": "/products/",
-        "text": "Products",
-        "sublinks": [
-          {
-            "link": "/products/gasoline/",
-            "text": "Gasoline"
-          },
-          {
-            "link": "/products/ethanol/",
-            "text": "Ethanol"
-          },
-          {
-            "link": "/products/diesel/",
-            "text": "Diesel"
-          }
-        ]
+        "text": "What We Deliver"
       },
       {
         "link": "/services/",
@@ -32,7 +18,7 @@
       },
       {
         "link": "/career/",
-        "text": "Career"
+        "text": "Careers"
       },
       {
         "link": "/contact/",
@@ -41,7 +27,7 @@
     ],
     "cta": {
       "link": "/contact/",
-      "text": "New Customer"
+      "text": "Request a Quote"
     }
   },
   "footer": {
@@ -52,7 +38,7 @@
     "links": [
       {
         "link": "/products/",
-        "text": "Products"
+        "text": "What We Deliver"
       },
       {
         "link": "/services/",
@@ -73,7 +59,7 @@
     ],
     "contact": {
       "email": "info@energytransport.com",
-      "phone": "(555) 123-4567",
+      "phone": "",
       "inquiry_link": "/contact/"
     }
   }
