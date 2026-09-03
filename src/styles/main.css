@@ -56,6 +56,9 @@ button, input, select, textarea { font: inherit; }
 .hero-note span { padding-right: .75rem; margin-right: .75rem; border-right: 1px solid #bac2b8; }
 .hero-art { position: relative; min-height: 440px; background: var(--forest); isolation: isolate; }
 .hero-art::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(120deg, transparent 0 32px, rgba(255,255,255,.05) 33px 34px); }
+.hero-photo { overflow: hidden; }
+.hero-photo > img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: 63% center; }
+.hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(16, 28, 23, .1), transparent 55%); }
 .road { position: absolute; width: 145%; height: 170px; right: -27%; bottom: -54px; z-index: 1; transform: rotate(-9deg); background: #c3ad84; border-top: 2px solid #e8d9bb; }
 .road::after { content: ""; position: absolute; top: 75px; left: 0; width: 100%; border-top: 5px dashed rgba(255,255,255,.8); }
 .truck { position: absolute; z-index: 2; right: 7%; bottom: 20%; width: min(560px, 91%); height: 240px; }
@@ -91,9 +94,7 @@ button, input, select, textarea { font: inherit; }
 
 .split-story { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(2.5rem, 6vw, 7rem); align-items: center; }
 .story-art { min-height: 450px; position: relative; overflow: hidden; background: #cabd9e; }
-.story-art::before { content: ""; position: absolute; inset: 11% 15%; border: 1px solid rgba(255,255,255,.58); }
-.story-art::after { content: "1989"; position: absolute; left: 9%; bottom: 4%; color: rgba(255,255,255,.9); font-family: var(--display); font-size: clamp(5rem, 10vw, 9rem); font-weight: 600; letter-spacing: -.025em; }
-.story-mark { position: absolute; z-index: 2; top: 18%; left: 13%; color: var(--forest); font-family: var(--display); font-size: 2.3rem; font-weight: 600; letter-spacing: -.015em; line-height: 1.1; }
+.story-art img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; }
 .story-copy p { max-width: 53ch; color: var(--muted); font-size: 1.02rem; line-height: 1.7; }
 .text-link { display: inline-flex; gap: .6rem; margin-top: 1.35rem; color: var(--signal); font-weight: 800; font-size: .9rem; }
 .text-link:hover { text-decoration: underline; }
