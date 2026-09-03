@@ -49,6 +49,10 @@ collections_config:
         name: Contact Page
         path: '.cloudcannon/schemas/contact.md'
         remove_extra_inputs: false
+      about:
+        name: About Page
+        path: '.cloudcannon/schemas/about.md'
+        remove_extra_inputs: false
       source_page:
         name: Source Editable Page
         path: '.cloudcannon/schemas/source-page.astro'
