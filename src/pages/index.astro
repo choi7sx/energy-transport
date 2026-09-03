@@ -1,61 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+import ManagedHome from "../components/pages/managed-home.astro";
+
+const page = await getEntry("pages", "index");
+if (!page) throw new Error("Missing managed home page content");
 ---
 
-<Layout title="Fuel delivery you can count on" seo={{ page_description: "Family-owned fuel transportation across Tennessee and the Mid-South since 1989.", featured_image: null, featured_image_alt: null, canonical_url: null, no_index: false, open_graph_type: "website", author_twitter_handle: null }}>
-  <section class="hero">
-    <div class="shell hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">Family owned · Mid-South based</p>
-        <h1>Fuel delivery with a name behind it.</h1>
-        <p class="hero-lead">Energy Transport delivers gasoline, ethanol, and diesel with the dependable service your operation needs and the personal accountability you deserve.</p>
-        <div class="hero-actions">
-          <a class="button" href="/contact/">Request a quote <span aria-hidden="true">→</span></a>
-          <a class="button button-ghost" href="/career/">Drive with us</a>
-        </div>
-        <p class="hero-note"><span>Since 1989</span> Serving Tennessee & the Mid-South</p>
-      </div>
-      <div class="hero-art hero-photo">
-        <img src="/images/energy-transport/fuel-tanker-road.jpg" alt="An Energy Transport fuel tanker on the road" />
-        <div class="art-badge">Safe<br />on time<br />every time</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="trust-bar" aria-label="Energy Transport highlights">
-    <div class="shell trust-list">
-      <div><strong>35+ years</strong><span>of steady service and earned trust</span></div>
-      <div><strong>3 fuel types</strong><span>gasoline, ethanol, and diesel</span></div>
-      <div><strong>4-state reach</strong><span>Tennessee, Arkansas, Mississippi & Kentucky</span></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="shell">
-      <div class="section-heading section-heading--centered">
-        <p class="eyebrow">What we deliver</p>
-        <h2>The fuel your business runs on.</h2>
-        <p>Every route is organized around one goal: keeping your customers, crews, and equipment moving without unnecessary surprises.</p>
-      </div>
-      <div class="services-grid">
-        <article><a class="service-card" href="/products/"><div><span class="service-number">01 / GASOLINE</span><h3>Gasoline</h3><p>Reliable supply for convenience stores and businesses that cannot afford an empty tank.</p></div><span class="service-link">Explore gasoline →</span></a></article>
-        <article><a class="service-card" href="/products/"><div><span class="service-number">02 / ETHANOL</span><h3>Ethanol</h3><p>Dependable ethanol delivery backed by careful handling and responsive dispatch.</p></div><span class="service-link">Explore ethanol →</span></a></article>
-        <article><a class="service-card" href="/products/"><div><span class="service-number">03 / DIESEL</span><h3>Diesel</h3><p>On-time diesel deliveries for the farms, job sites, and fleets that keep the region working.</p></div><span class="service-link">Explore diesel →</span></a></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-tint">
-    <div class="shell split-story">
-      <div class="story-art">
-        <img src="/images/energy-transport/driver-with-tanker.jpg" alt="An Energy Transport driver standing beside a fuel truck" />
-      </div>
-      <div class="story-copy">
-        <p class="eyebrow">A family business, by design</p>
-        <h2 class="content-title">Local values. Long-haul reliability.</h2>
-        <p>Energy Transport grew from the Willoughby family’s private fleet and has carried that same hands-on standard forward. We know that a late load is never just a late load—so our team stays focused on safe, thoughtful service from dispatch to delivery.</p>
-        <a class="text-link" href="/about/">Meet the people behind the work <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </section>
-</Layout>
+<ManagedHome page={page.data} />

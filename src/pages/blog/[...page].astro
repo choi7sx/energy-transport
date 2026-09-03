@@ -38,16 +38,6 @@ const { data: posts } = pagination;
     >
       {frontmatter.title}
     </h1>
-    <div class="max-w-md mx-auto mb-8">
-      <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
-      <script is:inline src="/pagefind/pagefind-ui.js"></script>
-      <div id="search"></div>
-      <script is:inline>
-        window.addEventListener("DOMContentLoaded", () => {
-          new PagefindUI({ element: "#search", showSubResults: true });
-        });
-      </script>
-    </div>
     <section>
       <BlogList posts={posts} />
       <BlogPagination pagination={pagination} />

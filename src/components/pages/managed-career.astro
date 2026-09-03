@@ -1,0 +1,12 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const { page } = Astro.props;
+const emailHref = `mailto:${page.seo?.contact_email ?? "info@energytransport.com"}?subject=${encodeURIComponent(page.job.email_subject)}`;
+---
+
+<Layout title={page.title} seo={page.seo}>
+  <section class="page-hero"><div class="shell"><p class="eyebrow">{page.hero.eyebrow}</p><h1>{page.hero.heading}</h1><p>{page.hero.lead}</p></div></section>
+  <section class="section"><div class="shell"><div class="section-heading section-heading--centered"><p class="eyebrow">{page.overview.eyebrow}</p><h2>{page.overview.heading}</h2><p>{page.overview.text}</p></div><article class="job-card job-card--centered"><p class="eyebrow">{page.job.location}</p><h2>{page.job.title}</h2>{page.job.paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}<a class="button" href={emailHref}>{page.job.button_text} <span aria-hidden="true">→</span></a></article></div></section>
+  <section class="section section-tint"><div class="shell split-story"><div class="story-art"><img src={page.story.image} alt={page.story.image_alt} /></div><div class="story-copy"><p class="eyebrow">{page.story.eyebrow}</p><h2 class="content-title">{page.story.heading}</h2><p>{page.story.text}</p></div></div></section>
+</Layout>

@@ -37,7 +37,7 @@ const pageSchema = z.object({
   hero_block: z.any().optional(),
   content_blocks: z.array(z.any()).optional(),
   seo: seoSchema,
-});
+}).passthrough();
 
 const paginatedCollectionSchema = z.object({
   title: z.string(),
@@ -46,7 +46,7 @@ const paginatedCollectionSchema = z.object({
 });
 
 const pagesCollection = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.{md,astro}', base: "./src/content/pages" }),
+  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/pages" }),
   schema: z.union([paginatedCollectionSchema, pageSchema]),
 });
 
